@@ -21,13 +21,13 @@ class Result {
 
     public static List<Integer> permutationEquation(List<Integer> p) {
     // Write your code here
-    ArrayList<Integer> result = new ArrayList<>();
-        for (int i = 1; i <= p.size(); i++) {
-            int firstIndex = p.indexOf(i) + 1;
-            int secondIndex = p.indexOf(firstIndex) + 1;
-            result.add(secondIndex);
-        }
-        return result;
+    ArrayList<Integer> f = new ArrayList<>();
+    for(int i=1;i<=p.size();i++){
+        int start = p.indexOf(i)+1;
+        int end = p.indexOf(start)+1;
+        f.add(end);
+    }
+    return f;
     }
 
 }

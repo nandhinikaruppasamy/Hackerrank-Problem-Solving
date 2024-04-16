@@ -21,26 +21,20 @@ class Result {
 
     public static List<Integer> quickSort(List<Integer> arr) {
     // Write your code here
-    ArrayList<Integer> original = new ArrayList<>();
-    ArrayList<Integer> left = new ArrayList<>();
-    ArrayList<Integer> right = new ArrayList<>();
     int pivot = arr.get(0);
+    // int[] ori = new int[arr.size()];
+    // ori[0]=pivot;
+    List<Integer> list = new ArrayList<>();
+    list.add(pivot);
     for(int i=1;i<arr.size();i++){
-        if(pivot>arr.get(i)){
-            left.add(arr.get(i));
+        if(arr.get(i)>pivot){
+            list.add(i,arr.get(i));
         }
-        if(pivot<arr.get(i)){
-            right.add(arr.get(i));
+        else {
+             list.add(0,arr.get(i));
         }
-    }
-   for(int s : left){
-       original.add(s);
-   }
-   original.add(pivot);
-   for(int s : right){
-       original.add(s);
-   }
-   return original;
+      }
+      return list;
     }
 
 }

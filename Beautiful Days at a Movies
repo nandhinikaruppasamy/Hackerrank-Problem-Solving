@@ -6,7 +6,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.*;
 import java.util.regex.*;
-import java.util.ArrayList.*;
 import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
@@ -25,21 +24,20 @@ class Result {
 
     public static int beautifulDays(int i, int j, int k) {
     // Write your code here
-    ArrayList<Integer> count = new ArrayList<>();
-     for(int a=i;a<=j;a++){
-          String s = Integer.toString(a);
-          StringBuilder reversed = new StringBuilder(s).reverse();
-           int reversedNumber = Integer.parseInt(reversed.toString());
-           int ori = Math.abs(a-reversedNumber);
-           if(ori % k == 0){
-               count.add(ori/k);
-           }
-           
-           
- 
-     }
-     int siz = count.size();
-     return siz;
+    int result = 0;
+    for(int a=i;a<=j;a++){
+        StringBuilder sb = new StringBuilder(Integer.toString(a));
+        sb.reverse();
+        if(sb.charAt(0)==0){
+            sb.deleteCharAt(sb.charAt(0));
+        }
+        int find = Integer.parseInt(sb.toString());
+        int ori = Math.abs(a-find);
+        if(ori%k==0){
+            result++;
+        }
+    }
+    return result;
     }
 
 }
@@ -66,4 +64,3 @@ public class Solution {
         bufferedWriter.close();
     }
 }
-beautiful Days 

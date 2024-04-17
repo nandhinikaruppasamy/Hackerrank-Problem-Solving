@@ -21,16 +21,15 @@ class Result {
 
     public static int viralAdvertising(int n) {
     // Write your code here
-    int shared = 5;
-    int liked = 2;
-    int cumu = 2;
+    int shared =5;
+    int liked= (int)Math.floor(5/2);
+    int cum=2;
     for(int i=2;i<=n;i++){
-        shared = liked * 3;
+        shared = liked*3;
         liked = (int)Math.floor(shared/2);
-        cumu += liked;
-        
+        cum += liked;
     }
-     return cumu;
+    return cum;
     }
 
 }

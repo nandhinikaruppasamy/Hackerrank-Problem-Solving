@@ -1,7 +1,5 @@
 import java.io.*;
 import java.math.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.security.*;
 import java.text.*;
 import java.util.*;
@@ -23,22 +21,19 @@ class Result {
      *  2. LONG_INTEGER n
      */
 
-
     public static long repeatedString(String s, long n) {
-        long count = 0;
-        int ele = 0;
-        for (long i = 0; i < n; i++) {
-            if (s.charAt(ele) == 'a') {
-                count++;
-            }
-
-            ele++;
-            if (ele == s.length()) {
-                ele = 0;
-            }
-        }
-
-        return count;
+    // Write your code here
+    long len = n/s.length();
+    long count = 0;
+    for(int i=0;i<s.length();i++){
+        if(s.charAt(i)=='a') count++;
+    }
+    long ori = len * count;
+    long find = n-(s.length()*len);
+    for(int i=0;i<find;i++){
+        if(s.charAt(i)=='a') ori++;
+    }
+    return ori;
     }
 
 }
@@ -61,3 +56,4 @@ public class Solution {
         bufferedWriter.close();
     }
 }
+                                                                  
